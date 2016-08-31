@@ -20,8 +20,8 @@ class AssociatesTableSeeder extends Seeder
 
         DB::table('associates')->insert([
             'cpf' => '22233344455',
-            'name' => 'Aline Lima',
-            'email' => 'aline@softwares.com',
+            'name' => 'Deitel',
+            'email' => 'deitel@softwares.com',
             'business_id' => 1
         ]);
 
@@ -34,8 +34,8 @@ class AssociatesTableSeeder extends Seeder
 
         DB::table('associates')->insert([
             'cpf' => '44433322211',
-            'name' => 'Miguel Lima',
-            'email' => 'miguel@softwares.com',
+            'name' => 'Stallings',
+            'email' => 'stallings@softwares.com',
             'business_id' => 1
         ]);
 

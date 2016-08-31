@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
                 <h1 class="panel-title pull-left">Editar Empresa - {{ $business->cnpj }}: {{ $business->name }}</h1>
-                <a href="{{ route('empresas.index') }}" class="pull-right">
+                <a href="{{ route('empresas.index') }}" class="pull-right nodecoration">
                     <span class="glyphicon glyphicon-backward"></span> Voltar
                 </a>
             </div> <!-- /.panel-heading -->

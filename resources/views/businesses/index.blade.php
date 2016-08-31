@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
                 <h1 class="panel-title pull-left">Empresas</h1>
-                <a href="{{ route('empresas.create') }}" class="pull-right">
+                <a href="{{ route('empresas.create') }}" class="pull-right nodecoration">
                     <span class="glyphicon glyphicon-plus"></span> Cadastrar Empresa
                 </a>
             </div> <!-- /.panel-heading -->

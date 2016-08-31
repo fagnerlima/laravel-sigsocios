@@ -34,7 +34,7 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'O NOME é obrigatório',
+            'name.required' => 'O NOME é obrigatório.',
             'name.min' => 'O NOME deve ter, no mínimo, 3 (três) caracteres',
             'name.max' => 'O NOME deve ter, no máximo, 60 (sessenta) caracteres.',
 
@@ -42,7 +42,7 @@ class UserRequest extends FormRequest
             'email.email' => 'O E-MAIL informado é inválido.',
             'email.unique' => 'O E-MAIL informado já existe no sistema.',
 
-            'password.required' => 'A SENHA é obrigatória',
+            'password.required' => 'A SENHA é obrigatória.',
             'password.min' => 'A SENHA deve ter, no mínimo, 5 (cinco) caracteres.',
             'password.max' => 'A SENHA deve ter, no máximo, 20 (vinte) caracteres.',
 

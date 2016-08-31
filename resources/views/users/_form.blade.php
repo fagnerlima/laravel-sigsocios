@@ -49,6 +49,8 @@
 
 <div class="form-group">
     <div class="col-md-4 col-md-offset-3">
-        {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok"></span> Salvar
+        </button>
     </div> <!-- /.col-md-4 -->
 </div> <!-- /.form-group -->

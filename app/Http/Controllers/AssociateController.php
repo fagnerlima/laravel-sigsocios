@@ -17,7 +17,7 @@ class AssociateController extends Controller
     {
         $data['title'] = 'Sócios';
 
-        // Pesquisa de empresas por CPF
+        // Pesquisa de sócios por CPF
         $search = trim(strip_tags(\Request::input('q')));
 
         if (empty($search))
@@ -107,6 +107,11 @@ class AssociateController extends Controller
         return redirect()->route('socios.index')->with('alert-warning', 'Sócio excluído com sucesso.');
     }
 
+    /**
+     * Gera um array com os nomes e os IDs das empresas.
+     *
+     * @return array
+     */
     private function getBusinessesList()
     {
         return Business::orderBy('name')->pluck('name', 'id')->prepend('', '');

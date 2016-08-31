@@ -27,8 +27,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                SIG Sócios
+            <a class="navbar-brand" href="{{ url('/') }}" title="SIG Sócios">
+                <img src="{{ asset('img/logo-header.png') }}" alt="SIG Sócios">
             </a>
         </div>
 
