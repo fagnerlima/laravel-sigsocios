@@ -25,6 +25,6 @@ class Business extends Model
 
     public function setCnpjAttribute($value)
     {
-        $this->attributes['cnpj'] = str_replace(['.', '/', '-'], ['', '', ''], $value);
+        $this->attributes['cnpj'] = str_replace(['.', '/', '-'], '', $value);
     }
 }

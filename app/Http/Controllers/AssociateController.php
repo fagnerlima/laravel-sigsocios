@@ -2,9 +2,10 @@
 
 namespace FlAssociates\Http\Controllers;
 
+use FlAssociates\Associate;
+use FlAssociates\Business;
+use FlAssociates\Http\Requests\AssociateRequest;
 use Illuminate\Http\Request;
-
-use FlAssociates\Http\Requests;
 
 class AssociateController extends Controller
 {
@@ -22,6 +23,14 @@ class AssociateController extends Controller
     {
         $data['title'] = 'Sócios';
 
+        // Pesquisa de empresas por CPF
+        $search = trim(strip_tags(\Request::input('q')));
+
+        if (empty($search))
+            $data['associates'] = Associate::orderBy('id')->paginate(10);
+        else
+            $data['associates'] = Associate::where('cpf', 'like', "%{$search}%")->orderBy('id')->paginate(10);
+
         return view('associates.index', $data);
     }
 
@@ -32,7 +41,10 @@ class AssociateController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = 'Cadastrar Sócio';
+        $data['businesses'] = $this->getBusinessesList();
+
+        return view('associates.create', $data);
     }
 
     /**
@@ -41,9 +53,11 @@ class AssociateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AssociateRequest $request)
     {
-        //
+        Associate::create($request->all());
+
+        return redirect()->route('socios.index')->with('alert-success', 'Sócio cadastrado com sucesso.');
     }
 
     /**
@@ -65,7 +79,11 @@ class AssociateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['title'] = 'Editar Sócio';
+        $data['associate'] = Associate::find($id);
+        $data['businesses'] = $this->getBusinessesList();
+
+        return view('associates.edit', $data);
     }
 
     /**
@@ -75,9 +93,11 @@ class AssociateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AssociateRequest $request, $id)
     {
-        //
+        Associate::find($id)->update($request->all());
+
+        return redirect()->route('socios.index')->with('alert-success', 'Sócio atualizado com sucesso.');
     }
 
     /**
@@ -88,6 +108,13 @@ class AssociateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Associate::destroy($id);
+
+        return redirect()->route('socios.index')->with('alert-warning', 'Sócio excluído com sucesso.');
+    }
+
+    private function getBusinessesList()
+    {
+        return Business::orderBy('name')->pluck('name', 'id')->prepend('', '');
     }
 }

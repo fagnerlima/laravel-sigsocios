@@ -1,5 +1,5 @@
 <div class="form-group">
-    {!! Form::label('cnpj', 'CNPJ', [
+    {!! Form::label('cnpj', 'CNPJ:', [
         'class' => 'col-md-1 control-label'
     ]) !!}
     <div class="col-md-4">
@@ -12,7 +12,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('name', 'Nome', [
+    {!! Form::label('name', 'Nome:', [
         'class' => 'col-md-1 control-label'
     ]) !!}
     <div class="col-md-4">

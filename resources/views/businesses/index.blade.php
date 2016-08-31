@@ -22,10 +22,10 @@
                                 <input type="search" class="form-control cnpj" placeholder="Pesquise por CNPJ"
                                        name="q" value="{{ \Request::input('q') }}"/>
                                 <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-default">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </span>
+                                    <button type="submit" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
                             </div>
                         </div> <!--/.col-md-4 -->
                     </div> <!--/.form-group -->
@@ -53,7 +53,8 @@
                                         <span class="glyphicon glyphicon-pencil"></span> Editar
                                     </a>
                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal"
-                                       data-target="#modal-destroy" data-id="{{ $business->id }}">
+                                       data-target="#modal-destroy" data-id="{{ $business->id }}"
+                                       data-baseurl={{ route('empresas.destroy', null) }}>
                                         <span class="glyphicon glyphicon-trash"></span> Excluir
                                     </a>
                                 </td>
