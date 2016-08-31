@@ -13,6 +13,10 @@
 
 Auth::routes();
 
+/*
+ * Redirecionamentos
+ */
+
 Route::get('/', function () {
     return redirect('socios');
 })->name('/');
@@ -21,5 +25,13 @@ Route::get('/home', function () {
     return redirect('socios');
 });
 
-Route::resource('/socios', 'AssociateController');
-Route::resource('/empresas', 'BusinessController');
+Route::get('/register', function () {
+    return redirect()->route('usuarios.create');
+});
+
+// Acesso restrito
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/usuarios', 'UserController');
+    Route::resource('/socios', 'AssociateController');
+    Route::resource('/empresas', 'BusinessController');
+});

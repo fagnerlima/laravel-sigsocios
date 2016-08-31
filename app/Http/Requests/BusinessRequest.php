@@ -32,13 +32,13 @@ class BusinessRequest extends FormRequest
     public function messages()
     {
         return [
-            'cnpj.required' => 'O CNPJ é obrigatório',
-            'cnpj.digits' => 'O CNPJ deve ter 14 (catorze) dígitos',
-            'cnpj.unique' => 'O CNPJ informado já existe no sistema',
+            'cnpj.required' => 'O CNPJ é obrigatório.',
+            'cnpj.digits' => 'O CNPJ deve ter 14 (catorze) dígitos.',
+            'cnpj.unique' => 'O CNPJ informado já existe no sistema.',
 
-            'name.required' => 'O NOME é obrigatório',
-            'name.min' => 'O NOME deve ter, no mínimo 3, (três) caracteres',
-            'name.max' => 'O NOME deve ter, no máximo 100, (cem) caracteres'
+            'name.required' => 'O NOME é obrigatório.',
+            'name.min' => 'O NOME deve ter, no mínimo 3, (três) caracteres.',
+            'name.max' => 'O NOME deve ter, no máximo 100, (cem) caracteres.'
         ];
     }
 

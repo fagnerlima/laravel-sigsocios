@@ -5,15 +5,9 @@ namespace FlAssociates\Http\Controllers;
 use FlAssociates\Associate;
 use FlAssociates\Business;
 use FlAssociates\Http\Requests\AssociateRequest;
-use Illuminate\Http\Request;
 
 class AssociateController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *

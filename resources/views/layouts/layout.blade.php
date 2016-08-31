@@ -9,8 +9,7 @@
     <title>{{ isset($title) && !empty($title) ? ($title . ' |') : '' }} SIG Sócios</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -34,11 +33,14 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ route('socios.index') }}">Sócios</a></li>
-                <li><a href="{{ route('empresas.index') }}">Empresas</a></li>
-            </ul>
+            @if(!Auth::guest())
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ route('socios.index') }}">Sócios</a></li>
+                    <li><a href="{{ route('empresas.index') }}">Empresas</a></li>
+                    <li><a href="{{ route('usuarios.index') }}">Usuários</a></li>
+                </ul>
+            @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -46,7 +48,6 @@
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                 @else
-                    <li><a href="{{ url('/register') }}">Novo Usuário</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
